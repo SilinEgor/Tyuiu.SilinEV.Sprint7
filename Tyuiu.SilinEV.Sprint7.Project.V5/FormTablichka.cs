@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Tyuiu.SilinEV.Sprint7.Project.V5.Lib;
 
 namespace Tyuiu.SilinEV.Sprint7.Project.V5
@@ -15,6 +16,7 @@ namespace Tyuiu.SilinEV.Sprint7.Project.V5
     {
         string filePath = FormMain.filePath;
         DataService ds = new();
+
         public FormTablichka()
         {
             InitializeComponent();
@@ -22,6 +24,13 @@ namespace Tyuiu.SilinEV.Sprint7.Project.V5
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            ToolTip tt = new();
+            tt.SetToolTip(buttonOpenFile, "открывает файл формата csv");
+            tt.SetToolTip(buttonSaveFile, "сохраняет изменения в файле формата csv");
+            tt.SetToolTip(buttonSearch, "ищет строки по заданым критериям(№ столбца, то что нужно найти)");
+            tt.SetToolTip(buttonGraf_SEV, "строит график по выделенным столбцам");
+            tt.SetToolTip(buttonInfo, "выводит информацию о программе");
 
             try
             {
@@ -61,6 +70,27 @@ namespace Tyuiu.SilinEV.Sprint7.Project.V5
                         row.Cells.Add(new DataGridViewTextBoxCell() { Value = matrix[i, j] });
                     }
                     dataGridView_SEV.Rows.Add(row);
+                }
+
+                Chart ch1 = chartKol_SEV;
+                Chart ch2 = chartSto_SEV;
+                ch1.Titles.Add("Кол-во товаров");
+                ch2.Titles.Add("Стоимость товара");
+                ch1.Series.Clear();
+                ch2.Series.Clear();
+                for (int i = 0; i < rows; i++)
+                {
+                    dataGridView_SEV.CurrentCell = dataGridView_SEV[1, i];
+                    ch1.Series.Add(Convert.ToString(dataGridView_SEV.CurrentCell.Value));
+
+                    dataGridView_SEV.CurrentCell = dataGridView_SEV[2, i];
+                    ch1.Series[i].Points.AddY(Convert.ToDouble(dataGridView_SEV.CurrentCell.Value));
+
+                    dataGridView_SEV.CurrentCell = dataGridView_SEV[1, i];
+                    ch2.Series.Add(Convert.ToString(dataGridView_SEV.CurrentCell.Value));
+
+                    dataGridView_SEV.CurrentCell = dataGridView_SEV[3, i];
+                    ch2.Series[i].Points.AddY(Convert.ToDouble(dataGridView_SEV.CurrentCell.Value));
                 }
             }
             catch (Exception ex)
@@ -186,8 +216,26 @@ namespace Tyuiu.SilinEV.Sprint7.Project.V5
 
         private void buttonGraf_SEV_Click(object sender, EventArgs e)
         {
+            Chart ch1 = chartKol_SEV;
+            Chart ch2 = chartSto_SEV;
+            ch1.Series.Clear();
+            ch2.Series.Clear();
+            for (int i = 0; i < dataGridView_SEV.Rows.Count - 1; i++)
+            {
+                dataGridView_SEV.CurrentCell = dataGridView_SEV[1, i];
+                ch1.Series.Add(Convert.ToString(dataGridView_SEV.CurrentCell.Value));
 
+                dataGridView_SEV.CurrentCell = dataGridView_SEV[2, i];
+                ch1.Series[i].Points.AddY(Convert.ToDouble(dataGridView_SEV.CurrentCell.Value));
+
+                dataGridView_SEV.CurrentCell = dataGridView_SEV[1, i];
+                ch2.Series.Add(Convert.ToString(dataGridView_SEV.CurrentCell.Value));
+
+                dataGridView_SEV.CurrentCell = dataGridView_SEV[3, i];
+                ch2.Series[i].Points.AddY(Convert.ToDouble(dataGridView_SEV.CurrentCell.Value));
+            }
         }
+
         private void textBoxMInMax_SEV_TextChanged(object sender, EventArgs e)
         {
 

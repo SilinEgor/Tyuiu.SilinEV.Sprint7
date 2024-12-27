@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             openFileDialog1 = new OpenFileDialog();
-            button1 = new Button();
-            button2 = new Button();
+            buttonOpenFile = new Button();
+            buttonInfo = new Button();
             labelMainMenu = new Label();
             SuspendLayout();
             // 
@@ -38,24 +38,25 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button1
+            // buttonOpenFile
             // 
-            button1.Location = new Point(12, 42);
-            button1.Name = "button1";
-            button1.Size = new Size(74, 61);
-            button1.TabIndex = 25;
-            button1.Text = "Открыть файл";
-            button1.UseVisualStyleBackColor = true;
+            buttonOpenFile.Location = new Point(12, 42);
+            buttonOpenFile.Name = "buttonOpenFile";
+            buttonOpenFile.Size = new Size(74, 61);
+            buttonOpenFile.TabIndex = 25;
+            buttonOpenFile.Text = "Открыть файл";
+            buttonOpenFile.UseVisualStyleBackColor = true;
+            buttonOpenFile.Click += button1_Click;
             // 
-            // button2
+            // buttonInfo
             // 
-            button2.Location = new Point(92, 42);
-            button2.Name = "button2";
-            button2.Size = new Size(74, 61);
-            button2.TabIndex = 26;
-            button2.Text = "?";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            buttonInfo.Location = new Point(92, 42);
+            buttonInfo.Name = "buttonInfo";
+            buttonInfo.Size = new Size(74, 61);
+            buttonInfo.TabIndex = 26;
+            buttonInfo.Text = "?";
+            buttonInfo.UseVisualStyleBackColor = true;
+            buttonInfo.Click += button2_Click;
             // 
             // labelMainMenu
             // 
@@ -73,18 +74,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(182, 115);
             Controls.Add(labelMainMenu);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(buttonInfo);
+            Controls.Add(buttonOpenFile);
             Name = "FormMain";
             Text = "Спринт 7 | ТехЗадание | Вариант 5 | Силин Е. В.";
+            Load += FormMain_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private OpenFileDialog openFileDialog1;
-        private Button button1;
-        private Button button2;
+        private Button buttonOpenFile;
+        private Button buttonInfo;
         private Label labelMainMenu;
     }
 }

@@ -28,18 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             label1 = new Label();
             labelNum = new Label();
             textBoxWhstFind_SEV = new TextBox();
             textBoxNumColumn_SEV = new TextBox();
-            chart_SEV = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            chartKol_SEV = new System.Windows.Forms.DataVisualization.Charting.Chart();
             buttonGraf_SEV = new Button();
             buttonSearch = new Button();
             buttonSaveFile = new Button();
@@ -52,8 +55,10 @@
             buttonOpenFile = new Button();
             textBoxMInMax_SEV = new TextBox();
             buttonInfo = new Button();
-            ((System.ComponentModel.ISupportInitialize)chart_SEV).BeginInit();
+            chartSto_SEV = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)chartKol_SEV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView_SEV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chartSto_SEV).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -88,21 +93,21 @@
             textBoxNumColumn_SEV.Size = new Size(47, 23);
             textBoxNumColumn_SEV.TabIndex = 18;
             // 
-            // chart_SEV
+            // chartKol_SEV
             // 
-            chartArea1.Name = "ChartArea1";
-            chart_SEV.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            chart_SEV.Legends.Add(legend1);
-            chart_SEV.Location = new Point(562, 37);
-            chart_SEV.Name = "chart_SEV";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart_SEV.Series.Add(series1);
-            chart_SEV.Size = new Size(383, 397);
-            chart_SEV.TabIndex = 17;
-            chart_SEV.Text = "chart1";
+            chartArea3.Name = "ChartArea1";
+            chartKol_SEV.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            chartKol_SEV.Legends.Add(legend3);
+            chartKol_SEV.Location = new Point(562, 37);
+            chartKol_SEV.Name = "chartKol_SEV";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            chartKol_SEV.Series.Add(series3);
+            chartKol_SEV.Size = new Size(383, 197);
+            chartKol_SEV.TabIndex = 17;
+            chartKol_SEV.Text = "chart1";
             // 
             // buttonGraf_SEV
             // 
@@ -145,9 +150,9 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            Column1.DefaultCellStyle = dataGridViewCellStyle5;
             Column1.HeaderText = "Код товара";
             Column1.Name = "Column1";
             // 
@@ -158,24 +163,24 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            Column3.DefaultCellStyle = dataGridViewCellStyle6;
             Column3.HeaderText = "Кол-во на складе";
             Column3.Name = "Column3";
             // 
             // Column4
             // 
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            Column4.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            Column4.DefaultCellStyle = dataGridViewCellStyle7;
             Column4.HeaderText = "Стоимость";
             Column4.Name = "Column4";
             // 
             // Column5
             // 
-            dataGridViewCellStyle4.NullValue = null;
-            Column5.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.NullValue = null;
+            Column5.DefaultCellStyle = dataGridViewCellStyle8;
             Column5.HeaderText = "Примечание";
             Column5.Name = "Column5";
             // 
@@ -207,18 +212,35 @@
             buttonInfo.UseVisualStyleBackColor = true;
             buttonInfo.Click += buttonInfo_Click;
             // 
+            // chartSto_SEV
+            // 
+            chartArea4.Name = "ChartArea1";
+            chartSto_SEV.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            chartSto_SEV.Legends.Add(legend4);
+            chartSto_SEV.Location = new Point(561, 240);
+            chartSto_SEV.Name = "chartSto_SEV";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chartSto_SEV.Series.Add(series4);
+            chartSto_SEV.Size = new Size(383, 194);
+            chartSto_SEV.TabIndex = 24;
+            chartSto_SEV.Text = "chart1";
+            // 
             // FormTablichka
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(956, 470);
+            Controls.Add(chartSto_SEV);
             Controls.Add(buttonInfo);
             Controls.Add(textBoxMInMax_SEV);
             Controls.Add(label1);
             Controls.Add(labelNum);
             Controls.Add(textBoxWhstFind_SEV);
             Controls.Add(textBoxNumColumn_SEV);
-            Controls.Add(chart_SEV);
+            Controls.Add(chartKol_SEV);
             Controls.Add(buttonGraf_SEV);
             Controls.Add(buttonSearch);
             Controls.Add(buttonSaveFile);
@@ -226,8 +248,9 @@
             Controls.Add(buttonOpenFile);
             Name = "FormTablichka";
             Text = "Спринт 7 | ТехЗадание | Вариант 5 | Силин Е. В.";
-            ((System.ComponentModel.ISupportInitialize)chart_SEV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chartKol_SEV).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView_SEV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chartSto_SEV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -238,7 +261,7 @@
         private Label labelNum;
         private TextBox textBoxWhstFind_SEV;
         private TextBox textBoxNumColumn_SEV;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_SEV;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartKol_SEV;
         private Button buttonGraf_SEV;
         private Button buttonSearch;
         private Button buttonSaveFile;
@@ -251,5 +274,6 @@
         private Button buttonOpenFile;
         private TextBox textBoxMInMax_SEV;
         private Button buttonInfo;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartSto_SEV;
     }
 }
